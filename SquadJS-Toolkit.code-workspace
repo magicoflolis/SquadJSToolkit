@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"search.exclude": {
+      "**/node_modules/**": true,
+			".vscode": true
+    },
+		"files.exclude": {
+      "**/build/**": true,
+      "**/node_modules/**": true,
+			".vscode": true
+    },
+		"local-history.daysLimit": 14,
+    "local-history.maxDisplay": 10,
+    "local-history.saveDelay": 0,
+    "local-history.dateLocale": "en-US",
+    "local-history.exclude": [
+      "**/node_modules/**",
+      "**/.history/**",
+      "**/.vscode**",
+      "**/typings/**",
+      "**/*.code-workspace"
+    ],
+		"eslint.experimental.useFlatConfig": true
+	}
+}

@@ -1,0 +1,126 @@
+{
+  "server": {
+    "id": 1,
+    "host": "xxx.xxx.xxx.xxx",
+    "queryPort": 27165,
+    "rconPort": 21114,
+    "rconPassword": "password",
+    "rconPassThrough": true,
+    "rconPassThroughPort": 8124,
+    "dumpRconResponsesToFile": false,
+    "logReaderMode": "tail",
+    "logDir": "C:/path/to/squad/log/folder",
+    "ftp": {
+      "port": 21,
+      "user": "FTP Username",
+      "password": "FTP Password",
+      "useListForSize": false
+    },
+    "adminLists": [
+      {
+        "type": "",
+        "source": ""
+      }
+    ],
+    "webURL": "https://www.battlemetrics.com/servers/squad/YOUR_SQUAD_SERVER"
+  },
+  "connectors": {
+    "discord": {
+      "clientID": "Discord Application ID",
+      "guidID": "Discord Server ID",
+      "token": "Discord Login Token",
+      "intents": ["Guilds", "GuildMessages", "MessageContent"],
+      "channelIDs": [
+        {
+          "label": "Channel Name",
+          "channelID": "Chanel ID"
+        }
+      ],
+      "embedDefaults": {
+        "clan": "[SquadJS] ",
+        "name": "Cerberus",
+        "iconURL": "https://i.imgur.com/HHEX79K.png",
+        "url": "https://www.battlemetrics.com/servers/squad",
+        "format": {
+          "player": "[[{{name}}](https://www.battlemetrics.com/rcon/players?filter[search]={{EOSID}}&method=quick&redirect=1 'Go to BattleMetrics')] - [[{{steamID}}](https://steamcommunity.com/profiles/{{steamID}} 'Go to Steam Profile')]",
+          "squad": "{{squadID}} : {{squadName}}",
+          "team": "{{teamID}} : {{teamName}}"
+        }
+      },
+      "webhook": {
+        "id": "Webhook ID",
+        "token": "Webhook Token"
+      }
+    },
+    "awnAPI": {
+      "orgID": "YourOrgID",
+      "creds": {
+        "username": "AwnUsername",
+        "password": "AwnPassword"
+      }
+    },
+    "BattleMetrics": {
+      "BanLists": [
+        {
+          "name": "Ban List Name",
+          "listID": "Ban List ID",
+          "UUID": "Ban List UUID"
+        }
+      ],
+      "listID": "Ban List ID",
+      "orgID": "Org ID",
+      "serverID": "Server ID",
+      "token": "BattleMetrics Token",
+      "UUID": "OWI"
+    },
+    "mysql": {
+      "host": "host",
+      "port": 3306,
+      "username": "squadjs",
+      "password": "password",
+      "database": "squadjs",
+      "dialect": "mysql"
+    },
+    "sqlite": "sqlite:database.sqlite"
+  },
+  "plugins": [
+    {
+      "plugin": "ToolkitProfanity",
+      "enabled": true,
+      "bmClient": "BattleMetrics",
+      "discordClient": "discord",
+      "Ban": {
+        "note": "Banned by Cerberus System",
+        "reason": "{{reason}} | {{timeLeft}}"
+      },
+      "embedInfo": {
+        "clan": "[SquadJS] ",
+        "name": "Cerberus",
+        "iconURL": "https://i.imgur.com/HHEX79K.png",
+        "url": "https://www.battlemetrics.com/servers/squad",
+        "format": {
+          "player": "[[{{name}}](https://www.battlemetrics.com/rcon/players?filter[search]={{EOSID}}&method=quick&redirect=1 'Go to BattleMetrics')] - [[{{steamID}}](https://steamcommunity.com/profiles/{{steamID}} 'Go to Steam Profile')]",
+          "squad": "{{squadID}} : {{squadName}}",
+          "team": "{{teamID}} : {{teamName}}"
+        }
+      },
+      "ignoreChats": []
+    }
+  ],
+  "logger": {
+    "verboseness": {
+      "SquadServer": 1,
+      "LogParser": 1,
+      "RCON": 1
+    },
+    "colors": {
+      "Toolkit": "cyanBright",
+      "DiscordJS": "cyanBright",
+      "Err": "redBright",
+      "SquadServer": "yellowBright",
+      "SquadServerFactory": "yellowBright",
+      "LogParser": "blueBright",
+      "RCON": "redBright"
+    }
+  }
+}
