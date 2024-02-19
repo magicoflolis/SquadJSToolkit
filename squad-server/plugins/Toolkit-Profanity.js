@@ -1,3 +1,5 @@
+// Profanity filter from `Toolkit.js`
+// DO NOT ENABLE BOTH!
 import ToolkitBase from './Toolkit-base.js';
 
 // #region Profanity List

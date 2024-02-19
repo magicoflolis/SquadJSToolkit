@@ -85,8 +85,71 @@
   },
   "plugins": [
     {
-      "plugin": "ToolkitProfanity",
+      "plugin": "Toolkit",
       "enabled": true,
+      "bmClient": "BattleMetrics",
+      "discordClient": "discord",
+      "Ban": {
+        "note": "Banned by Cerberus System",
+        "reason": "{{reason}} | {{timeLeft}}"
+      },
+      "DNDPlayers": {
+        "ping": [],
+        "warning": []
+      },
+      "embedInfo": {
+        "clan": "[SquadJS] ",
+        "name": "Cerberus",
+        "iconURL": "https://i.imgur.com/HHEX79K.png",
+        "url": "https://www.battlemetrics.com/servers/squad",
+        "format": {
+          "player": "[[{{name}}](https://www.battlemetrics.com/rcon/players?filter[search]={{EOSID}}&method=quick&redirect=1 'Go to BattleMetrics')] - [[{{steamID}}](https://steamcommunity.com/profiles/{{steamID}} 'Go to Steam Profile')]",
+          "squad": "{{squadID}} : {{squadName}}",
+          "team": "{{teamID}} : {{teamName}}"
+        }
+      },
+      "ignoreChats": [],
+      "ping": {
+        "delay": 60000,
+        "group": []
+      },
+      "profanityFilter": {
+        "squadNames": [
+          {
+            "enabled": false,
+            "regExp": "armou?r|vic|vehicle"
+          }
+        ]
+      },
+      "trigger": {
+        "admin": ["ban", "disband", "warn", "k"]
+      },
+      "Staff": {
+        "BaseAdmin": {
+          "perms": ["canseeadminchat"],
+          "steamIDs": [],
+          "userIDs": []
+        },
+        "Admin": {
+          "perms": ["cameraman"],
+          "steamIDs": [],
+          "userIDs": []
+        },
+        "Owner": {
+          "perms": ["!featuretest", "manageserver"],
+          "steamIDs": [],
+          "userIDs": []
+        },
+        "Dev": {
+          "perms": ["debug", "featuretest"],
+          "steamIDs": [],
+          "userIDs": []
+        }
+      }
+    },
+    {
+      "plugin": "ToolkitProfanity",
+      "enabled": false,
       "bmClient": "BattleMetrics",
       "discordClient": "discord",
       "Ban": {
@@ -105,6 +168,87 @@
         }
       },
       "ignoreChats": []
+    },
+    {
+      "plugin": "ToolkitStatusUpdater",
+      "enabled": true,
+      "discordClient": "discord",
+      "messageStore": "mysql",
+      "command": "!status",
+      "disableSubscriptions": false,
+      "updateInterval": 60000,
+      "setBotStatus": true
+    },
+    {
+      "plugin": "ToolkitTriggers",
+      "enabled": true,
+      "bmClient": "BattleMetrics",
+      "discordClient": "discord",
+      "embedInfo": {
+        "name": "Trigger System"
+      },
+      "ignoreChats": [],
+      "ignorePhrases": [],
+      "triggers": {
+        "admin": {
+          "commands": ["dnd"],
+          "ignore": {
+            "chats": ["ChatAll"],
+            "phrases": []
+          }
+        },
+        "dev": {
+          "commands": ["cerberus"],
+          "ignore": {
+            "chats": ["ChatAll"],
+            "phrases": []
+          }
+        },
+        "public": {
+          "commands": [
+            {
+              "cmds": ["admin", "admins", "help", "eelp"],
+              "fn": "help"
+            },
+            {
+              "cmds": ["bug", "doubleswitch", "runningman", "stuck", "stepbro"],
+              "fn": "doubleswitch"
+            },
+            {
+              "cmds": ["change", "switch"],
+              "fn": "switch"
+            }
+          ],
+          "ignore": {
+            "chats": [],
+            "phrases": []
+          }
+        }
+      },
+      "ping": {
+        "delay": 60000,
+        "groups": []
+      },
+      "warnInGameAdmins": true,
+      "showInGameAdmins": false
+    },
+    {
+      "plugin": "Roulette",
+      "enabled": true,
+      "discordClient": "discord",
+      "color": 16761867
+    },
+    {
+      "plugin": "CBLInfo",
+      "enabled": true,
+      "discordClient": "discord",
+      "threshold": 6
+    },
+    {
+      "plugin": "ServerRestarter",
+      "enabled": true,
+      "discordClient": "discord",
+      "intervalCheckMinutes": 180
     }
   ],
   "logger": {

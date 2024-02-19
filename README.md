@@ -8,17 +8,6 @@
 
 Due to creating this [script](https://github.com/magicoflolis/Magic-PH) long ago, my org & I have parted ways, so I have decided to open source my SquadJS code after 2 years of being apart of the Squad community.
 
-## TODO
-
-* Add `Apology System`
-* Add `Auto Teamkilll & Disconnect System`
-* Add `Roulette Trigger`
-* Add `Reworked Status Updater`
-* Add `Reworked cbl-info.js`
-* Add `Toolkit-Triggers.js`
-* Add `Modified server-restarter.js`
-* Add `Toolkit-admin-request.js`
-
 <br>
 
 ## **Prerequisites**
@@ -30,10 +19,12 @@ Due to creating this [script](https://github.com/magicoflolis/Magic-PH) long ago
 
 ### **Upgrading SquadJS**
 
-1. Run `npm install -g yarn` to update the global yarn version to latest v1.
-2. Run `yarn set version berry` to enable v2.
-3. Run `yarn config set nodeLinker node-modules`.
-4. Run `yarn install` to migrate the lockfile.
+1. Download & extract [SquadJS](https://github.com/fantinodavide/SquadJS/tree/master?tab=readme-ov-file#using-squadjs).
+2. Overwrite SquadJS contents.
+3. Run `npm install -g yarn` to update the global yarn version to latest v1.
+4. Run `yarn set version berry` to enable v2.
+5. Run `yarn config set nodeLinker node-modules`.
+6. Run `yarn install` to migrate the lockfile.
 
 Single line code:
 
@@ -58,47 +49,11 @@ The following section of the configuration contains information about your Squad
 
   ```json
   "server": {
-    "id": 1,
-    "host": "xxx.xxx.xxx.xxx",
-    "queryPort": 27165,
-    "rconPort": 21114,
-    "rconPassword": "password",
-    "rconPassThrough": true,
-    "rconPassThroughPort": 8124,
-    "dumpRconResponsesToFile": false,
-    "logReaderMode": "tail",
-    "logDir": "C:/path/to/squad/log/folder",
-    "ftp":{
-      "port": 21,
-      "user": "FTP Username",
-      "password": "FTP Password",
-      "useListForSize": false
-    },
-    "adminLists": [
-      {
-        "type": "local",
-        "source": "C:/Users/Administrator/Desktop/Servers/sq_arty_party/SquadGame/ServerConfig/Admins.cfg",
-      },
-      {
-        "type": "remote",
-        "source": "http://yourWebsite.com/Server1/Admins.cfg",
-      }
-    ],
+    "...": "...",
     "webURL": "https://www.battlemetrics.com/servers/squad/YOUR_SQUAD_SERVER"
   },
   ```
 
-* `id` - An integer ID to uniquely identify the server.
-* `host` - The IP of the server.
-* `queryPort` - The query port of the server.
-* `rconPort` - The RCON port of the server.
-* `rconPassword` - The RCON password of the server.
-* `logReaderMode` - `tail` will read from a local log file. `ftp` will read from a remote log file using the FTP protocol.
-* `logDir` - The folder where your Squad logs are saved. Most likely will be `C:/servers/squad_server/SquadGame/Saved/Logs`.
-* `ftp:port` - The FTP port of the server. Only required for `ftp` `logReaderMode`.
-* `ftp:user` - The FTP user of the server. Only required for `ftp` `logReaderMode`.
-* `ftp:password` - The FTP password of the server. Only required for `ftp` `logReaderMode`.
-* `adminLists` - Sources for identifying an admins on the server, either remote or local.
 * `webURL` - Your Squad servers website or BattleMetrics page.
 
   ---
@@ -188,6 +143,16 @@ Connects to the BattleMetrics API.
   }
 }
 ```
+
+* `BanLists` - Array of Ban Lists to use, can be an empty Array!
+* `BanLists:name` - A name to use
+* `BanLists:listID` - A Ban List ID
+* `BanLists:UUID` - (OPTIONAL) A UUID to use when creating bans, can be an empty string.
+* `listID` - Default Ban List ID to use
+* `orgID` - BattleMetrics Org ID
+* `serverID` - BattleMetrics Server ID
+* `token` - BattleMetrics Token
+* `UUID` - A default UUID to use when creating bans, can be an empty string.
 
  ---
 </details>

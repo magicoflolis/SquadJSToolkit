@@ -73,11 +73,9 @@ export default class SquadServer extends EventEmitter {
 
     this.addMap(
       'killSystem',
-      // 'sorrySystem',
       'squadChanges',
       'chatMessages',
       'disbands',
-      // 'teamKills',
       'slKits',
       'multiKills',
       'pChanges'
@@ -342,24 +340,6 @@ export default class SquadServer extends EventEmitter {
       delete data.playerSuffix;
 
       this.emit('PLAYER_POSSESS', data);
-      // data.player = this.getPlayerSuffix(data.playerSuffix);
-      // if (data.player === null) {
-      //   if (data.raw.match(/PC=(.+) Pawn=/)) {
-      //     const playerName = data.raw.match(/PC=(.+) Pawn=/)[1];
-      //     const findPlayer = this.players.filter((item) => {
-      //       const reg = toReg(playerName);
-      //       return reg.test(item.name);
-      //     });
-      //     if (!this.isEmpty(findPlayer)) {
-      //       data.player = findPlayer[0];
-      //     }
-      //   }
-      // }
-      // if (data.player) data.player.pawn = data.pawn;
-
-      // delete data.playerSuffix;
-
-      // this.emit('PLAYER_POSSESS', data);
     });
 
     this.logParser.on('PLAYER_UNPOSSESS', async (data) => {
@@ -368,25 +348,6 @@ export default class SquadServer extends EventEmitter {
       delete data.playerSuffix;
 
       this.emit('PLAYER_UNPOSSESS', data);
-      // data.player = this.getPlayerSuffix(data.playerSuffix);
-      // if (data.player === null) {
-      //   if (data.raw.match(/PC=(.+) Pawn=/)) {
-      //     const playerName = data.raw.match(/PC=(.+) Pawn=/)[1];
-      //     const findPlayer = this.players.filter((item) => {
-      //       const reg = toReg(playerName);
-      //       return reg.test(item.name);
-      //     });
-      //     if (!this.isEmpty(findPlayer)) {
-      //       data.player = findPlayer[0];
-      //     }
-      //   }
-      // }
-      // if (data.player) data.player.pawn = data.pawn;
-
-      // delete data.raw;
-      // delete data.playerSuffix;
-
-      // this.emit('PLAYER_UNPOSSESS', data);
     });
 
     this.logParser.on('ROUND_ENDED', (data) => {
@@ -969,17 +930,4 @@ export default class SquadServer extends EventEmitter {
     }
     return resp.length >= 2 ? resp : resp[0];
   }
-  // addMap(arr = []) {
-  //   if (this.isEmpty(arr)) return arr;
-  //   const resp = [];
-  //   for (const k of this.normalizeTarget(arr)) {
-  //     const key = Array.isArray(k) ? k[0] : k;
-  //     if (this.objMaps.has(key)) {
-  //       return this.objMaps.get(k);
-  //     }
-  //     this.objMaps.set(key, new Map());
-  //     resp.push(this.objMaps.get(key));
-  //   }
-  //   return resp.length >= 2 ? resp : resp[0];
-  // }
 }
