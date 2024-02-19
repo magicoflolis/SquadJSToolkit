@@ -1,6 +1,6 @@
 # SquadJS-Toolkit
 
-> **(UNDER CONSTRUCTION)** - Extends SquadJS functionality
+> Extends SquadJS functionality
 
 ## **About**
 
